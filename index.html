@@ -5,6 +5,7 @@
     <style>
       body {
         margin: auto;
+        margin-top: 0.5em;
         max-width: 100ex;
         padding-left: 5ex;
         padding-right: 5ex;
@@ -14,25 +15,44 @@
       button {
         font-family: monospace;
       }
+      #logo {
+        float: left;
+        margin-right: 5ex;
+        margin-bottom: 1em;
+        margin-left: 1ex;
+        margin-top: 1ex;
+        width: 30ex;
+        height: 30ex;
+      }
+      #header {
+        background-color: black;
+        color: white;
+        padding-bottom: 0.2em;
+        padding-top: 0.2em;
+        padding-left: 5ex;
+      }
+      .break {
+        clear: left;
+      }
     </style>
   </head>
   <body>
-    <h1>peermaps</h1>
-    <p>
-      Peer to peer cartography.
-    </p>
-
-    <p>
-      <a href="https://github.com/peermaps"
-      ><button>follow peermaps on github</button></a>
-    </p>
-
+    <img id="logo" src="peermaps.svg">
+    <div id="header">
+      <h1>peermaps</h1>
+      <p>Peer to peer cartography.</p>
+      <p>
+        <a href="https://github.com/peermaps"
+        ><button>follow peermaps on github</button></a>
+      </p>
+    </div>
     <p>
       Peermaps provides a decentralized, cooperative alternative to commercial
       map providers like Google Maps. Instead of fetching data from a
       centralized tile service, fetch map data from your peers using
       <a href="https://webtorrent.io/">webtorrent</a>.
     </p>
+    <div class="break"></div>
 
     <h2><a href="#whyp2p" name="whyp2p">why p2p?</a></h2>
 
