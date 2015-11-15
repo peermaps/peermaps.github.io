@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>peermaps</title>
+    <style>
+      body {
+        margin: auto;
+        max-width: 100ex;
+        padding-left: 5ex;
+        padding-right: 5ex;
+        padding-bottom: 5em;
+        font-family: monospace;
+      }
+      button {
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>peermaps</h1>
+    <p>
+      Peer to peer cartography.
+    </p>
+
+    <p>
+      <a href="https://github.com/peermaps"
+      ><button>follow peermaps on github</button></a>
+    </p>
+
+    <p>
+      Peermaps provides a decentralized, cooperative alternative to commercial
+      map providers like Google Maps. Instead of fetching data from a
+      centralized tile service, fetch map data from your peers using
+      <a href="https://webtorrent.io/">webtorrent</a>.
+    </p>
+
+    <h2><a href="#whyp2p" name="whyp2p">why p2p?</a></h2>
+
+    <p>
+      Peer to peer protocols like bittorrent spread out the work of hosting very
+      large files among all the peers in the network.
+      Centralized services can be overwhelmed if too many people want to
+      download a file, but p2p services flip scaling on its head: the more
+      people downloading and participating, the better the p2p network works for
+      everyone.
+    </p>
+
+    <p>
+      With the powerful inverse scaling dynamics of p2p, we can run a mapping
+      platform at a fixed, small cost, no matter how popular it becomes.
+    </p>
+
+    <p>
+      As you use download data from your peers, you keep that data locally so
+      that you can share it with other people who ask for it. This means that
+      when you go offline, you'll still be able to view maps you've looked at
+      previously.
+    </p>
+
+    <h2><a href="#how" name="how">how will i use peermaps?</a></h2>
+
+    <p>
+      When the technology is ready, you'll be able to embed a map in a web page
+      with a `&lt;script&gt;` tag or by using the API directly.
+    </p>
+
+    <p>
+      Using the underlying p2p tooling, you'll also be able to perform fast
+      ad-hoc osm extracts directly over the webtorrent network without
+      downloading all of planet osm (30G).
+    </p>
+
+    <h2><a href="#plan" name="plan">project plan</a></h2>
+
+    <p>
+      Here's the current plan for how the pieces fit together:
+    </p>
+
+    <ul>
+      <li>
+        Use a <a href="https://github.com/substack/kdb-tree.git">kdb-tree</a>
+        to generate a compact spatial index for planet osm protobuf format
+        that will also be distributed to bittorrent.
+      </li>
+      <li>
+        Extract regions from the spatial index offsets into the planet osm
+        protobuf to make tiles with mapnik.
+      </li>
+      <li>
+        Seed tile data to webtorrent.
+      </li>
+      <li>
+        Integrate peermaps with a leaflet plugin.
+      </li>
+      <li>
+        Offline-ready map editor that can export to Open Street Map and
+        localwiki.
+      </li>
+    </ul>
+  </body>
+</html>
