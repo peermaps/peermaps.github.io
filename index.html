@@ -34,6 +34,14 @@
       .break {
         clear: left;
       }
+      pre {
+        overflow-x: scroll;
+        background-color: #eae5e5;;
+        padding: 1em;
+      }
+      code {
+        background-color: #eae5e5;;
+      }
     </style>
   </head>
   <body>
@@ -47,10 +55,12 @@
       </p>
     </div>
     <p>
-      Peermaps provides a decentralized, cooperative alternative to commercial
-      map providers like Google Maps. Instead of fetching data from a
+      Peermaps provides a distributed, offline-friendly alternative to
+      commercial map providers like Google Maps. Instead of fetching data from a
       centralized tile service, fetch map data from your peers using
-      <a href="https://webtorrent.io/">webtorrent</a>.
+      <a href="https://ipfs.io">ipfs</a>
+      and
+      <a href="https://datproject.org">dat</a>.
     </p>
     <div class="break"></div>
 
@@ -77,45 +87,60 @@
       looked at previously.
     </p>
 
-    <h2><a href="#how" name="how">how will i use peermaps?</a></h2>
+    <h2><a href="#now" name="now">what can i do now?</a></h2>
 
     <p>
-      When the technology is ready, you'll be able to embed a map in a web page
-      with a `&lt;script&gt;` tag or by using the API directly.
+      Right now, you can use the <code>peermaps</code> command to download
+      ad-hoc extracts from
+      <a href="http://wiki.openstreetmap.org/wiki/Planet.osm">planet.osm</a>.
     </p>
 
     <p>
-      Using the underlying p2p tooling, you'll also be able to perform fast
-      ad-hoc osm extracts directly over the webtorrent network without
-      downloading all of planet osm (30G).
+      Follow the instructions on the
+      <a href="https://github.com/peermaps/peermaps">peermaps</a> project page,
+      then you can run commands to perform ad-hoc extracts for
+      <code>west south east north</code> bounding decimal degree extents:
     </p>
 
-    <h2><a href="#plan" name="plan">project plan</a></h2>
+    <pre>$ peermaps data -155.064270 18.9136925 -154.8093872 19.9 | head
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;osm version="0.6" generator="osmconvert 0.8.4" timestamp="2016-11-28T01:59:58Z"&gt;
+  &lt;bounds minlat="18.9136925" minlon="-155.06427" maxlat="19.9" maxlon="-154.8093872"/&gt;
+  &lt;node id="88994815" lat="19.7317131" lon="-155.0533157" version="3" timestamp="2012-01-19T21:23:51Z" changeset="10441415" uid="574654" user="Tom_Holland"/&gt;
+  &lt;node id="88994817" lat="19.7312758" lon="-155.0533179" version="3" timestamp="2012-01-19T21:23:51Z" changeset="10441415" uid="574654" user="Tom_Holland"/&gt;
+  &lt;node id="88994826" lat="19.7319167" lon="-155.0460457" version="3" timestamp="2012-01-19T21:23:51Z" changeset="10441415" uid="574654" user="Tom_Holland"/&gt;
+  &lt;node id="88994829" lat="19.7329599" lon="-155.0463189" version="3" timestamp="2012-01-19T21:23:51Z" changeset="10441415" uid="574654" user="Tom_Holland"/&gt;
+  &lt;node id="88994832" lat="19.7333033" lon="-155.0454221" version="3" timestamp="2012-01-19T21:23:51Z" changeset="10441415" uid="574654" user="Tom_Holland"/&gt;
+  &lt;node id="88994836" lat="19.7336513" lon="-155.0450981" version="4" timestamp="2012-01-20T23:02:03Z" changeset="10451586" uid="574654" user="Tom_Holland"/&gt;
+  &lt;node id="88994868" lat="19.7341231" lon="-155.0447835" version="3" timestamp="2012-01-20T23:02:03Z" changeset="10451586" uid="574654" user="Tom_Holland"/&gt;</pre>
+
+    <h2><a href="#roadmap" name="roadmap">what will i be able to do?</a></h2>
+
+    <ul>
+      <li>download and render vector tiles from p2p networks</li>
+      <li>view and edit maps offline</li>
+      <li>share satellite and aerial imagery with peers</li>
+    </ul>
+
+    <h2><a href="#learn-more" name="learn-more">learn more</a></h2>
+
+    <ul>
+      <li><a href="https://github.com/digidem/osm-p2p-db/blob/master/doc/architecture.markdown"
+      >osm-p2p architecture writeup</a></li>
+    </ul>
+
+    <h2><a href="#partners" name="partners">partners</a></h2>
 
     <p>
-      Here's the current plan for how the pieces fit together:
+      peermaps is a collaborative project among contributors and these
+      organizations:
     </p>
 
     <ul>
-      <li>
-        Use a <a href="https://github.com/substack/kdb-tree.git">kdb-tree</a>
-        to generate a compact spatial index for planet osm protobuf format
-        that will also be distributed to bittorrent.
-      </li>
-      <li>
-        Extract regions from the spatial index offsets into the planet osm
-        protobuf to make tiles with mapnik.
-      </li>
-      <li>
-        Seed tile data to webtorrent.
-      </li>
-      <li>
-        Integrate peermaps with a leaflet plugin.
-      </li>
-      <li>
-        Offline-ready map editor that can export to Open Street Map and
-        localwiki.
-      </li>
+      <li><a href="https://bits.coop">bits.coop</a></li>
+      <li><a href="https://www.digital-democracy.org/">digital democracy</a></li>
+      <li><a href="https://ipfs.io">ipfs</a></li>
+      <li><a href="https://datproject.org/">dat project</a></li>
     </ul>
   </body>
 </html>
